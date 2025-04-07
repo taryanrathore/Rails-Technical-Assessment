@@ -1,0 +1,31 @@
+<div class="dashboard-container">
+  <div class="main-content bg-light">
+      <div class="info">
+        <div class="well">
+          <table class="table">
+            <h3>New Course</h3>
+            <tbody>
+              <%= form_with model: @course, local: true do |f| %>
+                <tr>
+                  <td><%= f.label :title %></td>
+                  <td><%= f.text_field :title %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :status %></td>
+                  <td><%= f.select :status, ['active', 'closed'] %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :term %></td>
+                  <td><%= f.select :term_id, @terms %></td>
+                </tr>
+                <tr>
+                  <td><%= f.submit 'Create Course', class: "btn btn-info" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <%= link_to "Back", :back %>
+        </div>
+      </div>
+  </div>
+</div>

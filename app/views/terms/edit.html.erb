@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <%= render 'layouts/sidenavbar' %>
+  <div class="main_content">
+      <div class="header">
+        <%= render 'layouts/navbar' %>
+      </div>  
+      <div class="info">
+        <div class="well">
+          <table class="table">
+            <h3>Edit Term</h3>
+            <tbody>
+              <%= form_for @term do |f| %>
+                <tr>
+                  <td><%= f.label :name %></td>
+                  <td><%= f.text_field :name %></td>
+                </tr>
+                <tr>
+                  <td><%= f.submit 'Edit Term', class: "btn btn-info" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <%= link_to "Back", :back %>
+        </div>
+      </div>
+  </div>
+</div>

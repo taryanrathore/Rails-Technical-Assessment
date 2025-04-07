@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <%= render 'layouts/sidenavbar' %>
+  <div class="main_content">
+    <div class="header">
+      <%= render 'layouts/navbar' %>
+    </div>  
+    <div class="info">
+      <div class="well">
+        <table class="table">
+         <h3>Term</h3>
+         <tbody>
+          <tr>
+            <td>Term: <%= @term.name %></td>
+          </tr>
+          <tr>
+            <td><%= link_to 'Edit', edit_term_path(@term), class: "btn btn-info" %></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to "Back", :back %>
+    </div>
+  </div>
+</div>
+</div>

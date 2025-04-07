@@ -1,0 +1,31 @@
+<div class="dashboard-container">
+  <div class="main-content bg-light">
+      <div class="info">
+      <div class="well">
+        <table class="table">
+         <h3>Assignment</h3>
+         <tbody>
+          <tr>
+            <td>ID: <%= @assignment.id %></td>
+          </tr>
+          <tr>
+            <td>Title: <%= @assignment.title %></td>
+          </tr>
+          <tr>
+            <td>Description: <%= @assignment.description %></td>
+          </tr>
+          <tr>
+            <td>Course: <%= @assignment.course.title %></td>
+          </tr>
+          <% if current_user.instructor? %>
+          <tr>
+            <td><%= link_to 'Edit', edit_assignment_path(@assignment), class: "btn btn-info" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to "Back", :back %>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,88 @@
+<div class="dashboard-container">
+  <div class="main-content bg-light">
+    <!-- Assignments Content -->
+    <div class="assignments-content p-4">
+      <!-- Header Section -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h4 class="mb-1">Assignments</h4>
+          <p class="text-muted mb-0">Manage and track your assignments</p>
+        </div>
+        <% if current_user.instructor? %>
+          <%= link_to new_assignment_path, class: "btn btn-primary" do %>
+            <i class="fas fa-plus me-2"></i>Create Assignment
+          <% end %>
+        <% end %>
+      </div>
+
+      <!-- View Options -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="view-filters">
+          <button class="btn btn-outline-secondary active me-2">All</button>
+          <button class="btn btn-outline-secondary me-2">Pending</button>
+          <button class="btn btn-outline-secondary">Completed</button>
+        </div>
+      </div>
+
+      <!-- Assignments Table -->
+      <div>
+        <div>
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead class="bg-light">
+                <tr>
+                  <th class="border-0 px-4">Title</th>
+                  <th class="border-0">Course</th>
+                  <th class="border-0">Status</th>
+                  <th class="border-0 text-end px-4">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @assignments.each do |assignment| %>
+                  <tr>
+                    <td class="px-4">
+                      <div class="d-flex align-items-center">
+                        <div class="assignment-icon me-3">
+                          <div class="rounded-circle bg-primary bg-opacity-10 p-2">
+                            <i class="fas fa-file-alt text-primary"></i>
+                          </div>
+                        </div>
+                        <div>
+                          <h6 class="mb-0"><%= assignment.title %></h6>
+                          <small class="text-muted"><%= truncate(assignment.description, length: 60) %></small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="badge bg-light text-dark">
+                        <%= assignment.course.title %>
+                      </span>
+                    </td>
+                    <td>
+                      <span class="badge bg-success">Active</span>
+                    </td>
+                    <td class="text-end px-4">
+                      <div class="btn-group">
+                        <%= link_to assignment_path(assignment), class: "btn btn-light btn-sm" do %>
+                          <i class="fas fa-eye"></i>
+                        <% end %>
+                        <% if current_user.instructor? %>
+                          <%= link_to edit_assignment_path(assignment), class: "btn btn-light btn-sm" do %>
+                            <i class="fas fa-edit"></i>
+                          <% end %>
+                          <%= button_to assignment_path(assignment), method: :delete, class: "btn btn-light btn-sm", form: { data: { turbo_confirm: 'Are you sure?' } } do %>
+                            <i class="fas fa-trash text-danger"></i>
+                          <% end %>
+                        <% end %>
+                      </div>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

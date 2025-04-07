@@ -1,0 +1,9 @@
+document.querySelector('.row.g-4').innerHTML = '<%= j render partial: "courses", locals: { courses: @courses } %>';
+
+// Update active state of filter buttons
+document.querySelectorAll('.view-filters .btn').forEach(btn => {
+  btn.classList.remove('active');
+  if (btn.getAttribute('href').includes('<%= params[:status] %>')) {
+    btn.classList.add('active');
+  }
+}); 

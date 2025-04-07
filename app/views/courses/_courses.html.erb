@@ -1,0 +1,45 @@
+<% courses.each do |course| %>
+  <div class="col-md-4">
+    <div class="course-card h-100 bg-white rounded-3 border shadow-sm">
+      <div class="course-image position-relative" style="height: 160px; background: linear-gradient(45deg, #4158D0, #C850C0);">
+        <div class="course-overlay d-flex justify-content-between position-absolute w-100 p-3">
+          <span class="badge bg-<%= course.status == 'active' ? 'success' : 'secondary' %>">
+            <%= course.status.capitalize %>
+          </span>
+          <%= link_to add_to_favorite_dashboard_index_path(course_id: course.id), 
+              class: "text-white", 
+              data: { turbo_method: :post } do %>
+            <i class="<%= current_user.favorites.find_by(course_id: course.id).present? ? 'fas' : 'far' %> fa-heart"></i>
+          <% end %>
+        </div>
+      </div>
+      <div class="course-content p-3">
+        <h5 class="mb-2"><%= course.title %></h5>
+        <div class="course-info text-muted small mb-3">
+          <div class="mb-1">
+            <i class="fas fa-hashtag me-2"></i><%= course.code %>
+          </div>
+          <div>
+            <i class="fas fa-calendar-alt me-2"></i><%= course.term.name %>
+          </div>
+        </div>
+        <div class="course-actions d-flex justify-content-between align-items-center">
+          <%= link_to course_path(course), class: "btn btn-primary btn-sm" do %>
+            View Course <i class="fas fa-arrow-right ms-1"></i>
+          <% end %>
+          <div class="dropdown">
+            <button class="btn btn-light btn-sm" type="button" data-bs-toggle="dropdown">
+              <i class="fas fa-ellipsis-v"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i>Edit</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fas fa-users me-2"></i>Manage Students</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i>Delete</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %> 

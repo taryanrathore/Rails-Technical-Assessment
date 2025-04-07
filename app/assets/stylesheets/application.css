@@ -1,0 +1,194 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+/* Import dashboard styles */
+@import "dashboard.css";
+
+/* app/assets/stylesheets/application.css */
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+*{
+  font-family: 'Josefin Sans', sans-serif;
+}
+body{
+  background-color: #f3f5f9;
+}
+.login {
+  margin: 20px auto;
+  padding: 40px 50px;
+  max-width: 450px;
+  border-radius: 5px;
+  background: #ffffff;
+  box-shadow: 1px 1px 1px #666;
+  margin-top: 225px;
+}
+.login .login-field {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  margin: 10px 0;
+  padding: 14px 12px;
+  font-size: 16px;
+  border-radius: 2px; 
+}
+.login .login-field {
+  border: 1px solid #c0c0c0;
+  transition: .2s;
+}
+.login .submit-btn {
+  border: none;
+  background: #000;
+  color: white;
+  font-weight: bold;  
+  transition: 0.2s;
+  margin: 20px 0px;
+  width: 100%;
+  padding: 14px 12px;
+  font-size: 16px;
+}
+.login h2 {
+  margin: 20px 0 0; 
+  color: #000;
+  font-size: 28px;
+  text-align: center;
+}
+.links {
+  display: table;
+  width: 100%;  
+  box-sizing: border-box;
+  border-top: 1px solid #c0c0c0;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  width: 230px;
+  height: 100%;
+  background: #f8f9fa;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.wrapper .sidebar h2{
+  color: #333;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+.wrapper .sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}    
+
+.wrapper .sidebar ul li .nav_item{
+  color: #333;
+  display: block;
+}
+
+.wrapper .sidebar ul li .nav_item .fas{
+  width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+  background-color: #e9ecef;
+}
+    
+.wrapper .sidebar ul li:hover .nav_item{
+  color: #000;
+}
+
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 230px;
+}
+
+.wrapper .main_content .header{
+  padding: 10px;
+  background: #f8f9fa;
+  color: #333;
+  display: flex;
+}
+
+.logout-btn {
+  margin-left: 1300px;
+}
+.btn-danger {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+
+.wrapper .main_content .info{
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+
+.well {
+  background-color: #ffffff;
+}
+
+.card {
+  transition: 0.3s;
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 340px;
+  margin-left: 30px;
+  height: 340px;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+.card-body {
+  margin-left: 20px;
+}
+.badge {
+  font-size: 0.9rem;
+  padding: 5px 10px;
+  margin-left: 230px;
+}
+.gradient-box {
+  width: 100%;
+  height: 150px;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  position: relative;
+}
+.img-box {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+}
+.heart-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #ff0000;
+  font-size: 2.5rem;
+  cursor: pointer;
+}

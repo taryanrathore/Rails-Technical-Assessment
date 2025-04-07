@@ -1,0 +1,31 @@
+<div class="dashboard-container">
+  <div class="main-content bg-light">
+      <div class="info">
+        <div class="well">
+          <table class="table">
+            <h3>Edit Assignment</h3>
+            <tbody>
+              <%= form_for @assignment do |f| %>
+                <tr>
+                  <td><%= f.label :title %></td>
+                  <td><%= f.text_field :title %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :description %></td>
+                  <td><%= f.text_area :description %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :course %></td>
+                  <td><%= f.select :course_id, @courses %></td>
+                </tr>
+                <tr>
+                  <td><%= f.submit 'Edit Assignment', class: "btn btn-info" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <%= link_to "Back", :back %>
+        </div>
+      </div>
+  </div>
+</div>

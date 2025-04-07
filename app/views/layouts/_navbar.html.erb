@@ -1,0 +1,57 @@
+<!-- Top Navigation -->
+<% if current_user.present? %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light px-4 py-3 shadow-sm">
+    <div class="container-fluid">
+      <div class="d-flex align-items-center">
+      <% if controller_name == 'courses' %>
+        <div class="search-bar me-4" data-controller="course-search">
+          <div class="input-group">
+            <span class="input-group-text border-0 bg-light">
+              <i class="fas fa-search text-muted"></i>
+            </span>
+            <input type="text" 
+                   id="course-search" 
+                   class="form-control border-0 bg-light" 
+                   placeholder="Search courses..."
+                   data-course-search-target="input">
+          </div>
+        </div>
+      <% end %>
+      </div>
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown me-3">
+          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
+            <i class="fas fa-bell position-relative">
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                2
+              </span>
+            </i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><h6 class="dropdown-header">Notifications</h6></li>
+            <li><a class="dropdown-item" href="#">New assignment posted</a></li>
+            <li><a class="dropdown-item" href="#">Course update available</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown">
+            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-2" style="width: 35px; height: 35px;">
+              <%= current_user.name.first %>
+            </div>
+            <span><%= current_user.name %></span>
+            <i class="fas fa-chevron-down ms-2"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <%= button_to destroy_user_session_path, method: :delete, class: "dropdown-item text-danger" do %>
+                <i class="fas fa-sign-out-alt me-2"></i> Sign Out
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<% end %>

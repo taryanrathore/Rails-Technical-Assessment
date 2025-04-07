@@ -1,0 +1,24 @@
+<div class="dashboard-container">
+  <div class="main-content bg-light">
+      <div class="info">
+        <div class="well">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>ID: <%= @user.id %></td>
+	            </tr>
+	            <tr>
+	              <td>Name: <%= @user.name %></td>
+	             <tr>
+	              <td>Email: <%= @user.email %></td>
+	            </tr>
+	            <tr>
+	              <td>Role: <%= @user.role %></td>
+	            </tr>
+            </tbody>
+          </table>
+          <%= link_to "Back", :back %>
+        </div>
+      </div>
+  </div>
+</div>

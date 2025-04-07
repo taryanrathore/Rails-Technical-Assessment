@@ -1,0 +1,60 @@
+<div class="dashboard-container">
+  <div class="main-content bg-light">
+      <div class="info">
+        <div class="well">
+          <table class="table">
+          	<h3>Course</h3>
+            <tbody>
+              <tr>
+                <td>ID: <%= @course.id %></td>
+	          	<tr>
+              <tr>
+                <td>Title: <%= @course.title %></td>
+	            </tr>
+	            <tr>
+                <td>Code: <%= @course.code %></td>
+	            </tr>
+              <tr>
+                <td>Status: <%= @course.status %></td>
+	            </tr>
+              <tr>
+                <table class="table">
+                  <h4>Assignments</h4>
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Title</th>
+                      <th>Description</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @assignments.each do |assignment| %>
+                    <tr>
+                      <td><%= assignment.id %></td>
+                      <td><%= assignment.title %></td>
+                      <td><%= assignment.description %></td>
+                      <td style="display: flex; gap: 10px; align-items: center;">
+                        <%= link_to 'View', assignment_path(assignment), class: "btn btn-info" %>
+                        <% if current_user.instructor? %>
+                          <%= link_to 'Edit', edit_assignment_path(assignment), class: "btn btn-info" %>
+                          <%= button_to 'Delete', assignment_path(assignment), method: :delete, class: "btn btn-info" %>
+                        <% end %>
+                      </td>
+                    </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </tr>
+              <tr>
+                <% if current_user.instructor? %>
+                  <%= link_to 'Edit', edit_course_path(@course), class: "btn btn-info" %>
+                <% end %>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <%= link_to "Back", :back %>
+      </div>
+  </div>
+</div>

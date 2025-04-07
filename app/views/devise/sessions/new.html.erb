@@ -1,0 +1,11 @@
+<div class="login">
+  <h2>Login</h2>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"login-field", placeholder: "Email" %>
+    <%= f.password_field :password, autocomplete: "current-password", class:"login-field", placeholder: "Password" %>
+    <%= f.submit "Log in", class: "submit-btn" %>
+  <% end %>
+  <div class="links">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

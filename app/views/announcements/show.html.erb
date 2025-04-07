@@ -1,0 +1,38 @@
+<div class="dashboard-container">
+  <div class="main-content bg-light">
+      <div class="info">
+      <div class="well">
+        <table class="table">
+          <h3>Announcement</h3>
+          <tbody>
+            <tr>
+              <td>ID: <%= @announcement.id %></td>
+            </tr>
+            <tr>
+              <td>Title: <%= @announcement.title %></td>
+            </tr>
+            <tr>
+              <td>Content: <%= @announcement.content %></td>
+            </tr>
+            <% if @announcement.image.attached? %>
+            <tr>
+              <td>
+                <img src="<%= url_for(@announcement.image) %>" class="img-fluid rounded" 
+                     alt="Announcement Image" style="max-width: 400px; height: 300px; object-fit: cover;">
+              </td>
+            </tr>
+
+            <% end %>
+            <% if current_user.admin? %>
+            <tr>
+              <td><%= link_to 'Edit', edit_announcement_path(@announcement), class: "btn btn-info" %></td>
+              <td><%= button_to 'Destroy', announcement_path(@announcement), method: :delete, class: "btn btn-info" %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= link_to "Back", :back %>
+      </div>
+    </div>
+  </div>
+</div>

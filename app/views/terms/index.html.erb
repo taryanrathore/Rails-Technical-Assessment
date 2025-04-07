@@ -1,0 +1,37 @@
+<div class="wrapper">
+  <%= render 'layouts/sidenavbar' %>
+  <div class="main_content">
+      <div class="header">
+        <%= render 'layouts/navbar' %>
+      </div>  
+      <div class="info">
+        <div class="well">
+          <%= link_to 'New Term', new_term_path, class: "btn btn-info" %>
+          <table class="table">
+            <h3>Terms</h3>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @terms.each do |term| %>
+              <tr>
+                <td><%= term.id %></td>
+                <td><%= term.name %></td>
+                <td>
+                  <%= link_to 'View', term_path(term), class: "btn btn-info" %>
+                  <%= link_to 'Edit', edit_term_path(term), class: "btn btn-info" %>
+                  <%= button_to 'Destroy', term_path(term), method: :delete, class: "btn btn-info" %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <%= link_to "Back", :back %>
+        </div>
+      </div>
+  </div>
+</div>
